@@ -1,5 +1,8 @@
-class Misiones:
+from abc import ABC, abstractmethod
+
+class Misiones(ABC):
     def __init__(self, nombre: str, rango: int, recompensa: float, completado: bool, tipo_de_mision: int):
+        super().__init__()
         self.__nombre = nombre 
         self.__rango = rango
         self.__recompensa = recompensa
