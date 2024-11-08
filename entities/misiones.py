@@ -1,5 +1,5 @@
 class Misiones:
-    def __init__(self, nombre: str, rango: int, recompensa: float, completado: bool, tipo_de_mision):
+    def __init__(self, nombre: str, rango: int, recompensa: float, completado: bool, tipo_de_mision: int):
         self.__nombre = nombre 
         self.__rango = rango
         self.__recompensa = recompensa
