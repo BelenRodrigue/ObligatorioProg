@@ -4,14 +4,28 @@ from exceptions.valorInvalido import ValorInvalido
 class Aventurero(ABC):
     def __init__(self, nombre: str, ID: int, puntos_de_habilidad: int, experiencia: int, dinero: float):
         super().__init__()
-        self.__nombre = nombre
-        self.__ID = ID
-        self.__experiencia = experiencia
-        self.__dinero = dinero
+        if self.__nombre == None or self.__nombre == "":
+            raise ValorInvalido("El nombre esta incorrecto")
+
+        if self.__ID == None or self.__ID <= 0:
+            raise ValorInvalido("El ID esta incorrecto")
+        
+        if self.__experiencia == None or self.__experiencia <= 0:
+            raise ValorInvalido("La experiencia esta incorrecta")
+        
+        if self.__dinero == None or self.__dinero <= 0:
+            raise ValorInvalido("El dinero está incorrecto")
+        
         if 1 <= puntos_de_habilidad <= 100:
             self.__puntos_de_habilidad = puntos_de_habilidad
         else:
             raise ValorInvalido("Los puntos de habilidad deben estar entre 1 y 100.")
+        
+        self.__nombre = nombre
+        self.__ID = ID
+        self.__experiencia = experiencia
+        self.__dinero = dinero
+       
 
     #definimos getters
     @property
@@ -41,8 +55,4 @@ class Aventurero(ABC):
         self.__nombre = nuevo_nombre
          
     #esto  no se si va pero me faltaba un metodo abstracto???:
-    @abstractmethod
-    def realizar_mision(self):
-        pass
-
-
+   
