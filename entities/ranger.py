@@ -10,4 +10,4 @@ class Ranger(Aventurero):
     def mascota(self):
         return self.__mascota
     
-    
+    #holaprueba
