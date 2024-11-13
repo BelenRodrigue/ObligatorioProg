@@ -52,5 +52,5 @@ class Misiones(ABC):
     def __str__(self):
         aventureros = ""
         for aven_iter in self.aventureros:
-            aventureros = aventureros + str(aven_iter)
+            aventureros = aventureros + "\n" + str(aven_iter)
         return "Nombre: " + self.nombre + "\nRango: " + self.rango + "\nRecompensa: " + self.recompensa + "\nCompletado: " + self.completado + "\nAventureros: " + aventureros

@@ -33,7 +33,8 @@ def registrar_aventurero(gremio: Gremio):
         clase = "Mago"
     elif option == 3:
         clase = "Ranger"
-    else: 
+    else:
+        # poner un raise 
         print("Error")
 
     print("Ingrese el nombre:")
@@ -100,11 +101,11 @@ def realizar_mision(gremio: Gremio):
 
     gremio.realizar_mision(ids, nombre)
 
-def otras_consultas():
+def otras_consultas(gremio: Gremio):
     print("1. Ver Top 10 Aventureros con Más Misiones Resueltas")
     print("2. Ver Top 10 Aventureros con Mayor Habilidad")
     print("3. Ver Top 5 Misiones con Mayor Recompensa")
-    print("5. Volver al Menú Principal")
+    print("4. Volver al Menú Principal")
     option = int(input())
     
     if option == 1:
@@ -137,20 +138,17 @@ if __name__ == '__main__':
                 registrar_aventurero(gremio)
             elif option == 2:
                 # Registrar misión
-                registrar_mision()
+                registrar_mision(gremio)
             elif option == 3:
                 # Realizar misión
-                realizar_mision()
+                realizar_mision(gremio)
             elif option == 4:
                 # 
-                otras_consultas()
+                otras_consultas(gremio)
             elif option == 5:
                 # Finalizar la simulacion
                 the_end = True
-            else:
-                # Opcion no valida volver al menu principal
-                print(option)
         except ValorInvalido as ex:
             print(ex.mensaje)
-        # except Exception as e:
+        # except:
         #     print("Error de ingreso de datos")

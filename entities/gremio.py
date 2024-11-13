@@ -95,7 +95,7 @@ class Gremio:
 
         #falta terminar 
 
-    def ver_top_10_aventureros_misiones_resueltas(self, aventureros):
+    def ver_top_10_aventureros_misiones_resueltas(self):
         aventureros_ordenados = self.__aventureros
         aventureros_ordenados.sort(key= lambda aventurero: (-aventurero.misiones_completadas, aventurero.nombre)) 
 
@@ -128,11 +128,11 @@ class Gremio:
     def __str__(self):
         aventureros = ""
         for aventu_iter in self.aventureros:
-            aventureros = aventureros + aventu_iter.__str__()
+            aventureros = aventureros + "\n" + str(aventu_iter)
         
         misiones = ""
         for mision_iter in self.misiones:
-            misiones = misiones + mision_iter.__str__()
+            misiones = misiones + "\n"  + str(mision_iter)
 
         return aventureros
 
