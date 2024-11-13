@@ -3,11 +3,11 @@ from exceptions.valorInvalido import ValorInvalido
 class Mascota:
     def __init__(self, nombre: str, puntos_de_habilidad: int):
         if self.__nombre == None or self.__nombre == "":
-            raise ValorInvalido("El nombre esta incorrecto")
+            raise ValorInvalido("El nombre de la mascota es incorrecto")
         if 1 <= puntos_de_habilidad <= 50:
             self.__puntos_de_habilidad = puntos_de_habilidad
         else:
-            raise ValorInvalido("Los puntos de hablidad deben estar entre 1 y 50")
+            raise ValorInvalido("Los puntos de hablidad de la mascota deben estar entre 1 y 50")
    
         self.__nombre = nombre
         

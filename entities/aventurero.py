@@ -52,7 +52,4 @@ class Aventurero(ABC):
     #definimos setters:
     @nombre.setter
     def nombre(self, nuevo_nombre):
-        self.__nombre = nuevo_nombre
-         
-    #esto  no se si va pero me faltaba un metodo abstracto???:
-   
+        self.__nombre = nuevo_nombre   
