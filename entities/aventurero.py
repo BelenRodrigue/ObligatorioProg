@@ -53,3 +53,7 @@ class Aventurero(ABC):
     @nombre.setter
     def nombre(self, nuevo_nombre):
         self.__nombre = nuevo_nombre   
+
+    @abstractmethod
+    def validar_rango(self, rango_minimo: int):
+        pass
