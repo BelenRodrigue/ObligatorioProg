@@ -42,4 +42,4 @@ class Mago(Aventurero):
         return self.__puntos_de_habilidad + (self.__mana / 10)
     
     def __str__(self):
-        return super.__str__ + "\nMana: " + self.mana
+        return super().__str__() + "\nMana: " + self.mana

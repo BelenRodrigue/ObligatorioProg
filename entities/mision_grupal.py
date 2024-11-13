@@ -9,3 +9,5 @@ class MisionGrupal(Misiones):
     def cantidad_minima_de_miembros(self):
         return self.__cantidad_minima_de_miembros
     
+    def __str__(self):
+        return super().__str__() + "\nCantidad de miembros: " + self.cantidad_minima_de_miembros
