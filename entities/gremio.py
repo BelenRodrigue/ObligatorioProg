@@ -60,9 +60,9 @@ class Gremio:
             if type(mision_iter) is Misiones and mision_iter.nombre == nombre_mision:
                 mision = mision_iter
         if mision == None:
-            ValorInvalido("No se encontro una mision con ese nombre")
+            raise ValorInvalido("No se encontro una mision con ese nombre")
         if mision.completado == True:
-            ValorInvalido("La mision ya esta completada")
+            raise ValorInvalido("La mision ya esta completada")
 
         mision.reset_aventureros()
         # Validamos que todos los ids sean de aventureros en el gremio y validamos sus rangos
@@ -134,7 +134,7 @@ class Gremio:
         for mision_iter in self.misiones:
             misiones = misiones + "\n"  + str(mision_iter)
 
-        return aventureros
+        return aventureros + "\n" + misiones
 
 
 

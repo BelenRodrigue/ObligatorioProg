@@ -53,4 +53,4 @@ class Misiones(ABC):
         aventureros = ""
         for aven_iter in self.aventureros:
             aventureros = aventureros + "\n" + str(aven_iter)
-        return "Nombre: " + self.nombre + "\nRango: " + self.rango + "\nRecompensa: " + self.recompensa + "\nCompletado: " + self.completado + "\nAventureros: " + aventureros
+        return "Nombre: " + self.nombre + "\nRango: " + str(self.rango) + "\nRecompensa: " + str(self.recompensa) + "\nCompletado: " + str(self.completado) + "\nAventureros: " + aventureros

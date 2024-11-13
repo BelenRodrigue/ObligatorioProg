@@ -10,4 +10,4 @@ class MisionGrupal(Misiones):
         return self.__cantidad_minima_de_miembros
     
     def __str__(self):
-        return super().__str__() + "\nCantidad de miembros: " + self.cantidad_minima_de_miembros
+        return super().__str__() + "\nCantidad de miembros: " + str(self.cantidad_minima_de_miembros)
