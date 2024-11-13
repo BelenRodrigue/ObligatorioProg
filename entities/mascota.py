@@ -19,4 +19,7 @@ class Mascota:
     def puntos_de_habilidad (self):
         return self.__puntos_de_habilidad
     
+    def __str__(self):
+        return "Nombre: " + self.nombre + "\nPuntos de habilidad: " + self.puntos_de_habilidad
+    
 

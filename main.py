@@ -1,4 +1,7 @@
+from entities.gremio import Gremio
 from entities.ranger import Ranger
+from entities.mago import Mago
+from entities.guerrero import Guerrero
 
 def mostrar_menu_principal():
     print("Bienvenido al Simulador de Gremio de Aventureros! \n")
@@ -9,7 +12,7 @@ def mostrar_menu_principal():
     print("4. Otras Consultas")
     print("5. Salir")
 
-def registrar_aventurero():
+def registrar_aventurero(gremio: Gremio):
     print("Elija la clase del aventurero:")
     print("1. Guerrero")
     print("2. Mago")
@@ -51,6 +54,13 @@ def registrar_aventurero():
             nombre_mascota = str(input())
             print("Ingrese los puntos de habilidad de la mascota:")
             habilidad_mascota = int(input())
+    
+    if tiene_mascota == "S": 
+        tiene_mascota_bool = True 
+    else: 
+        tiene_mascota_bool = False
+        
+    gremio.registrar_aventurero_en_el_gremio(nombre, clase, puntos_habilidad, experiencia, dinero, fuerza, mana, tiene_mascota_bool, nombre_mascota, habilidad_mascota, id)
 
 def registrar_mision():
     print("Ingrese el nombre de la misión:")
@@ -95,17 +105,16 @@ def otras_consultas():
 
 
 if __name__ == '__main__':
-
+    gremio = Gremio()
     the_end = False
 
     while(the_end == False):
         mostrar_menu_principal()
         try:
             option = int(input())
-
             if option == 1:
                 # Registrar aventurero
-                registrar_aventurero()
+                registrar_aventurero(gremio)
             elif option == 2:
                 # Registrar misión
                 registrar_mision()

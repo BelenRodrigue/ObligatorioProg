@@ -68,3 +68,6 @@ class Aventurero(ABC):
     @abstractmethod
     def habilidad_total(self) -> int:
         pass
+
+    def __str__(self):
+        return "Nombre: " + self.nombre + "\nPuntos de habilidad: " + str(self.puntos_de_habilidad) + "\nExperiencia: " + str(self.experiencia) + "\nDinero: " + str(self.dinero)

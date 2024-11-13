@@ -9,7 +9,7 @@ from entities.mision_grupal import MisionGrupal
 from entities.mision_individual import MisionIndividual
 
 class Gremio:
-    def __init__(self, aventureros: list, misiones: list):
+    def __init__(self):
         self.__aventureros = []
         self.__misiones = []
 

@@ -41,3 +41,6 @@ class Guerrero(Aventurero):
         
     def habilidad_total(self):
         return self.__puntos_de_habilidad + (self.__fuerza / 2)
+
+    def __str__(self):
+        return super.__str__ + "\nFuerza: " + self.fuerza
