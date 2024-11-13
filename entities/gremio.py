@@ -72,13 +72,27 @@ class Gremio:
                 if type(aventurero_iter) is Aventurero and aventurero_iter.ID == id_iter:
                     encontre = True
                     aventurero_iter.validar_rango(mision.rango)
-                    mision.aventureros(aventurero_iter)
+                    mision.aventureros(aventurero_iter)  #pregutnar a j 
+                    mision.completado = True #???
+                    recompensa_individual = mision.__recompensa / len(self.__aventureros)
+                    aventurero_iter.dinero = recompensa_individual
+                    if mision.rango == 1:
+                        aventurero_iter.experiencia += 5
+                    elif mision.rango == 2:
+                        aventurero_iter.experiencia += 10 
+                    elif mision.rango == 3:
+                        aventurero_iter.experiencia += 20
+                    elif mision.rango == 4:
+                        aventurero_iter.experiencia += 50
+                    else:
+                        aventurero_iter.experiencia += 100 
             if encontre == False:
                 raise ValorInvalido("No se encontro el aventurero en el gremio")
             
         del self.__misiones[index]
         mision.completado = True
         self.__misiones.append(mision)
+
         #falta terminar 
 
     def ver_top_10_aventureros_misiones_resueltas(self, aventureros):
