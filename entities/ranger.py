@@ -39,4 +39,11 @@ class Ranger(Aventurero):
         if rango < rango_minimo:
             raise ValorInvalido ("El rango es inválido")
         
+    def __str__(self):
+        return self.nombre + " " + str(self.puntos_de_habilidad) + " " + str(self.experiencia)
         
+    def habilidad_total(self):
+        if Mascota == None:
+            return self.__puntos_de_habilidad
+        else:
+            return self.__puntos_de_habilidad + self.__mascota.puntos_de_habilidad

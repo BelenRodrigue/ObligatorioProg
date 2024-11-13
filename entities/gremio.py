@@ -82,37 +82,17 @@ class Gremio:
         #falta terminar 
 
     def ver_top_10_aventureros_misiones_resueltas(self, aventureros):
-        aventureros_ordenados = sorted(aventureros, key=lambda x: (-x["misiones_resueltas"], x["nombre"]))
-    
-        print("Top 10 Aventureros con Más Misiones Resueltas:")
-        for i, aventurero in enumerate(aventureros_ordenados[:10], start=1):
-            print(f"{i}. {aventurero['nombre']} - {aventurero['misiones_resueltas']} misiones")
-        #falta terminar
+        pass
 
-    def ver_top_10_aventureros_por_mayor_habilidad(self):
-        top10_habilidad = []
+    def ver_top_10_aventureros_por_mayor_habilidad(self):        
+        aventureros_ordenados = self.__aventureros
+        aventureros_ordenados.sort(key= lambda aventurero: (-aventurero.habilidad_total(), -aventurero.experiencia)) 
         
-        for iter_aventurero in self.__aventureros:
-            habilidad_total = 0
-            if type(iter_aventurero) is Guerrero:
-                habilidad_total = iter_aventurero.puntos_de_habilidad + (iter_aventurero.fuerza / 2)
-            elif type(iter_aventurero) is Mago:
-                habilidad_total = iter_aventurero.puntos_de_habilidad + (iter_aventurero.mana / 10)
-            elif type(iter_aventurero) is Ranger:
-                if iter_aventurero.mascota.nombre == None:
-                    habilidad_total = iter_aventurero.puntos_de_habilidad 
-                else:
-                    habilidad_total = iter_aventurero.puntos_de_habilidad + iter_aventurero.mascota.puntos_de_habilidad
-
-            top10_habilidad.append((habilidad_total, iter_aventurero.experiencia, iter_aventurero.nombre))
-        
-        top10_habilidad.sort(key=lambda x: (-x[0], x[1])) #ordena la lista
-
-
-        print("Top 10 Aventureros por Mayor Habilidad:")
-        for i, aventurero in enumerate(top10_habilidad[:10], start=1):
-            print(f"{i}. {aventurero[1]} - Habilidad Total: {aventurero[0]}")
-
+        n = 0
+        while (n < 10 and n < len(aventureros_ordenados)):
+            print(str(n+1))
+            print(aventureros_ordenados[n])
+            n += 1
 
     def ver_top_5_misiones_con_mayor_recompensa(self):
         pass

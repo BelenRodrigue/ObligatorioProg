@@ -39,3 +39,6 @@ class Mago(Aventurero):
 
         if rango < rango_minimo:
             raise ValorInvalido ("El rango es inválido")
+        
+    def habilidad_total(self):
+        return self.__puntos_de_habilidad + (self.__mana / 10)
