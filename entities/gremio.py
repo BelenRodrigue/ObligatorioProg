@@ -82,7 +82,14 @@ class Gremio:
         #falta terminar 
 
     def ver_top_10_aventureros_misiones_resueltas(self, aventureros):
-        pass
+        aventureros_ordenados = self.__aventureros
+        aventureros_ordenados.sort(key= lambda aventurero: (-aventurero.misiones_completadas, aventurero.nombre)) 
+
+        n = 0
+        while (n < 10 and n < len(aventureros_ordenados)):
+            print(str(n+1))
+            print(aventureros_ordenados[n])
+            n += 1
 
     def ver_top_10_aventureros_por_mayor_habilidad(self):        
         aventureros_ordenados = self.__aventureros
@@ -95,10 +102,17 @@ class Gremio:
             n += 1
 
     def ver_top_5_misiones_con_mayor_recompensa(self):
-        pass
+        misiones_ordenadas = self.__misiones
+        misiones_ordenadas.sort(key= lambda mision: (-mision.recompensa, mision.nombre)) 
 
-    def volver_menu_principal(self):
-        pass
+        n = 0
+        while (n < 5 and n < len(misiones_ordenadas)):
+            print(str(n+1))
+            print(misiones_ordenadas[n])
+            n += 1
+
+
+
 
 
 
