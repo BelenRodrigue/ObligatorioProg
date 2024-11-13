@@ -79,7 +79,7 @@ class Gremio:
         del self.__misiones[index]
         mision.completado = True
         self.__misiones.append(mision)
-
+        #falta terminar 
 
     def ver_top_10_aventureros_misiones_resueltas(self, aventureros):
         aventureros_ordenados = sorted(aventureros, key=lambda x: (-x["misiones_resueltas"], x["nombre"]))
@@ -87,16 +87,39 @@ class Gremio:
         print("Top 10 Aventureros con Más Misiones Resueltas:")
         for i, aventurero in enumerate(aventureros_ordenados[:10], start=1):
             print(f"{i}. {aventurero['nombre']} - {aventurero['misiones_resueltas']} misiones")
-
+        #falta terminar
 
     def ver_top_10_aventureros_por_mayor_habilidad(self):
-        pass
+        top10_habilidad = []
+        
+        for iter_aventurero in self.__aventureros:
+            habilidad_total = 0
+            if type(iter_aventurero) is Guerrero:
+                habilidad_total = iter_aventurero.puntos_de_habilidad + (iter_aventurero.fuerza / 2)
+            elif type(iter_aventurero) is Mago:
+                habilidad_total = iter_aventurero.puntos_de_habilidad + (iter_aventurero.mana / 10)
+            elif type(iter_aventurero) is Ranger:
+                if iter_aventurero.mascota.nombre == None:
+                    habilidad_total = iter_aventurero.puntos_de_habilidad 
+                else:
+                    habilidad_total = iter_aventurero.puntos_de_habilidad + iter_aventurero.mascota.puntos_de_habilidad
+
+            top10_habilidad.append((habilidad_total, iter_aventurero.experiencia, iter_aventurero.nombre))
+        
+        top10_habilidad.sort(key=lambda x: (-x[0], x[1])) #ordena la lista
+
+
+        print("Top 10 Aventureros por Mayor Habilidad:")
+        for i, aventurero in enumerate(top10_habilidad[:10], start=1):
+            print(f"{i}. {aventurero[1]} - Habilidad Total: {aventurero[0]}")
+
 
     def ver_top_5_misiones_con_mayor_recompensa(self):
         pass
 
     def volver_menu_principal(self):
         pass
+
 
 
 
