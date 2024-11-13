@@ -39,7 +39,7 @@ class Ranger(Aventurero):
             raise ValorInvalido ("El rango es inválido")
         
     def __str__(self):
-        return super.__str__ + self.mascota
+        return super().__str__() + self.mascota
         
     def habilidad_total(self):
         if Mascota == None:
