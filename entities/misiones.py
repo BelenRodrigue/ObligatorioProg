@@ -2,7 +2,7 @@ from abc import ABC, abstractmethod
 from exceptions.valorInvalido import ValorInvalido 
 
 class Misiones(ABC):
-    def __init__(self, nombre: str, rango: int, recompensa: float, completado: bool):
+    def __init__(self, nombre: str, rango: int, recompensa: float):
         super().__init__()
 
         if nombre == None or nombre == "":
@@ -19,7 +19,7 @@ class Misiones(ABC):
         self.__nombre = nombre 
         self.__rango = rango
         self.__recompensa = recompensa
-        self.__completado = completado 
+        self.__completado = False 
         self.__aventureros = []
 
     @property

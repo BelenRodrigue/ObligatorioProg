@@ -2,6 +2,7 @@ from entities.gremio import Gremio
 from entities.ranger import Ranger
 from entities.mago import Mago
 from entities.guerrero import Guerrero
+from exceptions.valorInvalido import ValorInvalido
 
 def mostrar_menu_principal():
     print("Bienvenido al Simulador de Gremio de Aventureros! \n")
@@ -17,6 +18,12 @@ def registrar_aventurero(gremio: Gremio):
     print("1. Guerrero")
     print("2. Mago")
     print("3. Ranger")
+
+    tiene_mascota = None
+    mana = None
+    fuerza = None
+    nombre_mascota = None
+    habilidad_mascota = None
 
     option = int(input())
 
@@ -39,7 +46,7 @@ def registrar_aventurero(gremio: Gremio):
     experiencia = int(input())
     print("Ingrese el dinero:")
     dinero = float(input())
-
+    
     if clase == "Guerrero":
         print("Ingrese la fuerza del Guerrero:")
         fuerza = int(input())
@@ -59,10 +66,11 @@ def registrar_aventurero(gremio: Gremio):
         tiene_mascota_bool = True 
     else: 
         tiene_mascota_bool = False
-        
+
     gremio.registrar_aventurero_en_el_gremio(nombre, clase, puntos_habilidad, experiencia, dinero, fuerza, mana, tiene_mascota_bool, nombre_mascota, habilidad_mascota, id)
 
-def registrar_mision():
+def registrar_mision(gremio: Gremio):
+    cantidad_miembros = 0
     print("Ingrese el nombre de la misión:")
     nombre = str(input())
     print("Ingrese el rango de la misión:")
@@ -75,16 +83,22 @@ def registrar_mision():
         print("Ingrese la cantidad minima de miembros para la misión:")
         cantidad_miembros = int(input())
 
-def realizar_mision():
+    gremio.registrar_mision(nombre, rango, recompensa, cantidad_miembros)
+
+def realizar_mision(gremio: Gremio):
     print("Ingrese el nombre de la misión:")
     nombre = str(input())
 
+    ids = []
     pedir_mas = "S"
     while(pedir_mas == "S"):
         print("Ingrese el ID del aventurero:")
         id = int(input())
+        ids.append(id)
         print("Registrar otro aventurero? (S/N):")
         pedir_mas = str(input())
+
+    gremio.realizar_mision(ids, nombre)
 
 def otras_consultas():
     print("1. Ver Top 10 Aventureros con Más Misiones Resueltas")
@@ -95,13 +109,13 @@ def otras_consultas():
     
     if option == 1:
         # Top 10 aventureros con mas misiones resueltas
-        pass
+        gremio.ver_top_10_aventureros_misiones_resueltas()
     elif option == 2:
         # Top 10 aventureros con mayor habilidad
-        pass
+        gremio.ver_top_10_aventureros_por_mayor_habilidad()
     elif option == 3:
         # Top 5 misiones con mayor recompensa
-        pass
+        gremio.ver_top_5_misiones_con_mayor_recompensa()
 
 
 if __name__ == '__main__':
@@ -109,6 +123,12 @@ if __name__ == '__main__':
     the_end = False
 
     while(the_end == False):
+        print()
+        print("############")
+        print(gremio)
+        print("############")
+        print()
+
         mostrar_menu_principal()
         try:
             option = int(input())
@@ -130,5 +150,7 @@ if __name__ == '__main__':
             else:
                 # Opcion no valida volver al menu principal
                 print(option)
-        except:
-            print("Error de ingreso de datos")
+        except ValorInvalido as ex:
+            print(ex.mensaje)
+        # except Exception as e:
+        #     print("Error de ingreso de datos")

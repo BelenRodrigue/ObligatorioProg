@@ -42,11 +42,11 @@ class Gremio:
         self.__aventureros.append(nuevo_aventurero)
 
 
-    def registrar_mision(self, nombre, rango, recompensa, completado, cantidad_miembros):
+    def registrar_mision(self, nombre: str, rango: int, recompensa: float, cantidad_miembros: int):
         if cantidad_miembros > 0:
-            nueva_mision = MisionGrupal (nombre, rango, recompensa, completado, cantidad_miembros)
+            nueva_mision = MisionGrupal(nombre, rango, recompensa, cantidad_miembros)
         else:
-            nueva_mision = MisionIndividual (nombre, rango, recompensa, completado)
+            nueva_mision = MisionIndividual(nombre, rango, recompensa)
 
         self.__misiones.append(nueva_mision)
 
@@ -111,6 +111,16 @@ class Gremio:
             print(misiones_ordenadas[n])
             n += 1
 
+    def __str__(self):
+        aventureros = ""
+        for aventu_iter in self.aventureros:
+            aventureros = aventureros + aventu_iter.__str__()
+        
+        misiones = ""
+        for mision_iter in self.misiones:
+            misiones = misiones + mision_iter.__str__()
+
+        return aventureros
 
 
 
