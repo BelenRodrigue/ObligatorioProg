@@ -9,9 +9,19 @@ class Mago(Aventurero):
         else:
             raise ValorInvalido("El mana debe estar entre 1 y 1000.")
     
+        self.__misiones_completadas = 0
+
     @property
     def mana(self):
         return self.__mana
+    
+    @property
+    def misiones_completadas (self):
+        return self.__misiones_completadas
+    
+    @misiones_completadas.setter
+    def incrementar_misiones(self):
+        self.misiones_completadas += 1
     
     def validar_rango(self, rango_minimo: int):
         puntos = self.puntos_de_habilidad + (self.mana / 10)

@@ -79,7 +79,24 @@ class Gremio:
         del self.__misiones[index]
         mision.completado = True
         self.__misiones.append(mision)
-        
+
+
+    def ver_top_10_aventureros_misiones_resueltas(self, aventureros):
+        aventureros_ordenados = sorted(aventureros, key=lambda x: (-x["misiones_resueltas"], x["nombre"]))
+    
+        print("Top 10 Aventureros con Más Misiones Resueltas:")
+        for i, aventurero in enumerate(aventureros_ordenados[:10], start=1):
+            print(f"{i}. {aventurero['nombre']} - {aventurero['misiones_resueltas']} misiones")
+
+
+    def ver_top_10_aventureros_por_mayor_habilidad(self):
+        pass
+
+    def ver_top_5_misiones_con_mayor_recompensa(self):
+        pass
+
+    def volver_menu_principal(self):
+        pass
 
 
 

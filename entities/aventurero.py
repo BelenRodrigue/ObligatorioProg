@@ -25,7 +25,7 @@ class Aventurero(ABC):
         self.__ID = ID
         self.__experiencia = experiencia
         self.__dinero = dinero
-       
+        self.__misiones_completadas = 0
 
     #definimos getters
     @property
@@ -48,11 +48,18 @@ class Aventurero(ABC):
     def dinero (self):
         return self.__dinero
 
+    @property
+    def misiones_completadas (self):
+        return self.__misiones_completadas
 
     #definimos setters:
     @nombre.setter
     def nombre(self, nuevo_nombre):
         self.__nombre = nuevo_nombre   
+
+    @misiones_completadas.setter
+    def incrementar_misiones(self):
+        self.misiones_completadas += 1
 
     @abstractmethod
     def validar_rango(self, rango_minimo: int):

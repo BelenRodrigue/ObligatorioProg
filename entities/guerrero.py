@@ -9,10 +9,20 @@ class Guerrero(Aventurero):
         else:
             raise ValorInvalido("La fuerza debe estar entre 1 y 100.")
     
+        self.__misiones_completadas = 0
+
     @property
     def fuerza(self):
         return self.__fuerza
     
+    @property
+    def misiones_completadas (self):
+        return self.__misiones_completadas
+    
+    @misiones_completadas.setter
+    def incrementar_misiones(self):
+        self.misiones_completadas += 1
+
 
     def validar_rango(self, rango_minimo: int):
         puntos = self.puntos_de_habilidad + (self.fuerza / 2)

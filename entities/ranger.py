@@ -6,10 +6,19 @@ class Ranger(Aventurero):
     def __init__(self, nombre: str, ID: int, puntos_de_habilidad: int, experiencia: int, dinero: float, mascota: Mascota):
         super().__init__(nombre, ID, puntos_de_habilidad, experiencia, dinero)
         self.__mascota = mascota
+        self.__misiones_completadas = 0
 
     @property
     def mascota(self):
         return self.__mascota
+    
+    @property
+    def misiones_completadas (self):
+        return self.__misiones_completadas
+    
+    @misiones_completadas.setter
+    def incrementar_misiones(self):
+        self.misiones_completadas += 1
     
     def validar_rango(self, rango_minimo: int):
         puntos = self.puntos_de_habilidad
