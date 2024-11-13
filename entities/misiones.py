@@ -4,23 +4,23 @@ from exceptions.valorInvalido import ValorInvalido
 class Misiones(ABC):
     def __init__(self, nombre: str, rango: int, recompensa: float, completado: bool):
         super().__init__()
-        self.__nombre = nombre 
-        self.__rango = rango
-        self.__recompensa = recompensa
-        self.__completado = completado 
-        self.__aventureros = []
 
-        if self.__nombre == None or self.__nombre == "":
+        if nombre == None or nombre == "":
             raise ValorInvalido("El nombre esta incorrecto")
 
-        if self.__recompensa == None or self.__recompensa <= 0:
+        if recompensa == None or recompensa <= 0:
             raise ValorInvalido("La recompensa esta incorrecta")
         
         if 1 <= rango <= 5:
             self.__rango = rango
         else:
             raise ValorInvalido("El rango debe de estar entre 1 y 5.")
-
+        
+        self.__nombre = nombre 
+        self.__rango = rango
+        self.__recompensa = recompensa
+        self.__completado = completado 
+        self.__aventureros = []
 
     @property
     def nombre(self):

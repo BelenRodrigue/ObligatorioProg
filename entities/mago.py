@@ -8,8 +8,6 @@ class Mago(Aventurero):
             self.__mana = mana
         else:
             raise ValorInvalido("El mana debe estar entre 1 y 1000.")
-    
-        self.__misiones_completadas = 0
 
     @property
     def mana(self):

@@ -2,7 +2,7 @@
 from exceptions.valorInvalido import ValorInvalido 
 class Mascota:
     def __init__(self, nombre: str, puntos_de_habilidad: int):
-        if self.__nombre == None or self.__nombre == "":
+        if nombre == None or nombre == "":
             raise ValorInvalido("El nombre de la mascota es incorrecto")
         if 1 <= puntos_de_habilidad <= 50:
             self.__puntos_de_habilidad = puntos_de_habilidad

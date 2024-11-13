@@ -8,8 +8,6 @@ class Guerrero(Aventurero):
             self.__fuerza = fuerza
         else:
             raise ValorInvalido("La fuerza debe estar entre 1 y 100.")
-    
-        self.__misiones_completadas = 0
 
     @property
     def fuerza(self):
