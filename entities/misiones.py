@@ -42,12 +42,14 @@ class Misiones(ABC):
     def aventureros(self):
         return self.__aventureros
 
-    @aventureros.setter
-    def aventureros(self, nuevo_aventurero):
+    def set_aventureros(self, nuevo_aventurero):
         self.__aventureros.append(nuevo_aventurero)
 
     def reset_aventureros(self):
         self.__aventureros = []
+
+    def set_completado(self):
+        self.__completado = True
 
     def __str__(self):
         aventureros = ""

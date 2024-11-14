@@ -49,7 +49,7 @@ class Aventurero(ABC):
         return self.__dinero
 
     @property
-    def misiones_completadas (self):
+    def misiones_completadas(self):
         return self.__misiones_completadas
 
     #definimos setters:
@@ -57,9 +57,14 @@ class Aventurero(ABC):
     def nombre(self, nuevo_nombre):
         self.__nombre = nuevo_nombre   
 
-    @misiones_completadas.setter
     def incrementar_misiones(self):
-        self.misiones_completadas += 1
+        self.__misiones_completadas = self.misiones_completadas + 1
+
+    def add_dinero(self, dinero):
+        self.__dinero = self.__dinero + dinero
+
+    def add_experiencia(self, experiencia):
+        self.__experiencia = self.__experiencia + experiencia
 
     @abstractmethod
     def validar_rango(self, rango_minimo: int):
@@ -70,4 +75,4 @@ class Aventurero(ABC):
         pass
 
     def __str__(self):
-        return "Nombre: " + self.nombre + "\nPuntos de habilidad: " + str(self.puntos_de_habilidad) + "\nExperiencia: " + str(self.experiencia) + "\nDinero: " + str(self.dinero)
+        return "Nombre: " + self.nombre + "\nPuntos de habilidad: " + str(self.puntos_de_habilidad) + "\nExperiencia: " + str(self.experiencia) + "\nDinero: " + str(self.dinero) + "\nMisiones Completadas: " + str(self.misiones_completadas)

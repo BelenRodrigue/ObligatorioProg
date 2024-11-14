@@ -11,14 +11,6 @@ class Ranger(Aventurero):
     def mascota(self):
         return self.__mascota
     
-    @property
-    def misiones_completadas (self):
-        return self.__misiones_completadas
-    
-    @misiones_completadas.setter
-    def incrementar_misiones(self):
-        self.misiones_completadas += 1
-    
     def validar_rango(self, rango_minimo: int):
         puntos = self.puntos_de_habilidad
         if self.puntos_de_habilidad <= 80 and self.mascota != None:
@@ -43,6 +35,6 @@ class Ranger(Aventurero):
         
     def habilidad_total(self):
         if Mascota == None:
-            return str(self.__puntos_de_habilidad)
+            return str(self.puntos_de_habilidad)
         else:
-            return str(self.__puntos_de_habilidad) + str(self.__mascota.puntos_de_habilidad)
+            return str(self.puntos_de_habilidad) + str(self.__mascota.puntos_de_habilidad)

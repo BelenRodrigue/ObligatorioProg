@@ -12,15 +12,6 @@ class Guerrero(Aventurero):
     @property
     def fuerza(self):
         return self.__fuerza
-    
-    @property
-    def misiones_completadas (self):
-        return self.__misiones_completadas
-    
-    @misiones_completadas.setter
-    def incrementar_misiones(self):
-        self.misiones_completadas += 1
-
 
     def validar_rango(self, rango_minimo: int):
         puntos = self.puntos_de_habilidad + (self.fuerza / 2)
@@ -40,7 +31,7 @@ class Guerrero(Aventurero):
             raise ValorInvalido("El rango es inválido")
         
     def habilidad_total(self):
-        return self.__puntos_de_habilidad + (self.__fuerza / 2)
+        return self.puntos_de_habilidad + (self.__fuerza / 2)
 
     def __str__(self):
         return super().__str__() + "\nFuerza: " + str(self.fuerza)

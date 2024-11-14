@@ -13,14 +13,6 @@ class Mago(Aventurero):
     def mana(self):
         return self.__mana
     
-    @property
-    def misiones_completadas (self):
-        return self.__misiones_completadas
-    
-    @misiones_completadas.setter
-    def incrementar_misiones(self):
-        self.misiones_completadas += 1
-    
     def validar_rango(self, rango_minimo: int):
         puntos = self.puntos_de_habilidad + (self.mana / 10)
 
@@ -39,7 +31,7 @@ class Mago(Aventurero):
             raise ValorInvalido ("El rango es inválido")
         
     def habilidad_total(self):
-        return self.__puntos_de_habilidad + (self.__mana / 10)
+        return self.puntos_de_habilidad + (self.__mana / 10)
     
     def __str__(self):
         return super().__str__() + "\nMana: " + str(self.mana)

@@ -123,8 +123,8 @@ if __name__ == '__main__':
     gremio = Gremio()
     the_end = False
 
-    # gremio.registrar_aventurero_en_el_gremio("aa", "Guerrero", 1, 1, 1.0, 1, None, False, None, None, 1)
-    # gremio.registrar_mision("mision", 1, 2.0, 1)
+    gremio.registrar_aventurero_en_el_gremio("aa", "Guerrero", 1, 1, 1.0, 1, None, False, None, None, 1)
+    gremio.registrar_mision("mision", 1, 2.0, 1)
 
     while(the_end == False):
         print()

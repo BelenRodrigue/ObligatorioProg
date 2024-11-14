@@ -54,10 +54,10 @@ class Gremio:
 
         # Buscamos y validamos la mision
         mision = None
-        index = 0
+        index = -1
         for mision_iter in self.__misiones:
             index += 1
-            if type(mision_iter) is Misiones and mision_iter.nombre == nombre_mision:
+            if mision_iter.nombre == nombre_mision:
                 mision = mision_iter
         if mision == None:
             raise ValorInvalido("No se encontro una mision con ese nombre")
@@ -66,34 +66,38 @@ class Gremio:
 
         mision.reset_aventureros()
         # Validamos que todos los ids sean de aventureros en el gremio y validamos sus rangos
+
+        aventureros_nuevo = []
+        recompensa_individual = mision.recompensa / len(self.__aventureros)
+        if mision.rango == 1:
+            recompensa_experiencia = 5
+        elif mision.rango == 2:
+            recompensa_experiencia= 10 
+        elif mision.rango == 3:
+            recompensa_experiencia= 20
+        elif mision.rango == 4:
+            recompensa_experiencia = 50
+        else:
+            recompensa_experiencia= 100 
+
         for id_iter in ids:
             encontre = False
             for aventurero_iter in self.__aventureros:
-                if type(aventurero_iter) is Aventurero and aventurero_iter.ID == id_iter:
+                if aventurero_iter.ID == id_iter:
                     encontre = True
                     aventurero_iter.validar_rango(mision.rango)
-                    mision.aventureros(aventurero_iter)  #pregutnar a j 
-                    mision.completado = True #???
-                    recompensa_individual = mision.__recompensa / len(self.__aventureros)
-                    aventurero_iter.dinero = recompensa_individual
-                    if mision.rango == 1:
-                        aventurero_iter.experiencia += 5
-                    elif mision.rango == 2:
-                        aventurero_iter.experiencia += 10 
-                    elif mision.rango == 3:
-                        aventurero_iter.experiencia += 20
-                    elif mision.rango == 4:
-                        aventurero_iter.experiencia += 50
-                    else:
-                        aventurero_iter.experiencia += 100 
+                    mision.set_aventureros(aventurero_iter) 
+                    aventurero_iter.add_dinero(recompensa_individual)
+                    aventurero_iter.add_experiencia(recompensa_experiencia)
+                    aventurero_iter.incrementar_misiones()
+                    aventureros_nuevo.append(aventurero_iter)
             if encontre == False:
                 raise ValorInvalido("No se encontro el aventurero en el gremio")
             
         del self.__misiones[index]
-        mision.completado = True
+        mision.set_completado()
         self.__misiones.append(mision)
-
-        #falta terminar 
+        self.__aventureros = aventureros_nuevo
 
     def ver_top_10_aventureros_misiones_resueltas(self):
         aventureros_ordenados = self.__aventureros
