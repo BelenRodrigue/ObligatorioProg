@@ -40,6 +40,7 @@ class Gremio:
 
 
         self.__aventureros.append(nuevo_aventurero)
+        print("Aventurero registrado con exito")
 
 
     def registrar_mision(self, nombre: str, rango: int, recompensa: float, cantidad_miembros: int):
@@ -49,6 +50,7 @@ class Gremio:
             nueva_mision = MisionIndividual(nombre, rango, recompensa)
 
         self.__misiones.append(nueva_mision)
+        print("Misión registrada con exito")
 
     def realizar_mision (self, ids: list, nombre_mision: str):
 
@@ -60,9 +62,9 @@ class Gremio:
             if mision_iter.nombre == nombre_mision:
                 mision = mision_iter
         if mision == None:
-            raise ValorInvalido("No se encontro una mision con ese nombre")
+            raise ValorInvalido("No se encontro una misión con ese nombre")
         if mision.completado == True:
-            raise ValorInvalido("La mision ya esta completada")
+            raise ValorInvalido("La misión ya esta completada")
 
         mision.reset_aventureros()
         # Validamos que todos los ids sean de aventureros en el gremio y validamos sus rangos
@@ -91,6 +93,9 @@ class Gremio:
                     aventurero_iter.add_experiencia(recompensa_experiencia)
                     aventurero_iter.incrementar_misiones()
                     aventureros_nuevo.append(aventurero_iter)
+                    print("Misión Existosa")
+                else:
+                    print("Misión Fallida")
             if encontre == False:
                 raise ValorInvalido("No se encontro el aventurero en el gremio")
             

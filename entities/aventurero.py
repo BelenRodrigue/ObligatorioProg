@@ -58,7 +58,7 @@ class Aventurero(ABC):
         self.__nombre = nuevo_nombre   
 
     def incrementar_misiones(self):
-        self.__misiones_completadas = self.misiones_completadas + 1
+        self.__misiones_completadas = self.__misiones_completadas + 1
 
     def add_dinero(self, dinero):
         self.__dinero = self.__dinero + dinero

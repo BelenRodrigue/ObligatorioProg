@@ -96,7 +96,7 @@ def realizar_mision(gremio: Gremio):
         print("Ingrese el ID del aventurero:")
         id = int(input())
         ids.append(id)
-        print("Registrar otro aventurero? (S/N):")
+        print("Agregar otro aventurero a la misión? (S/N):")
         pedir_mas = str(input())
 
     gremio.realizar_mision(ids, nombre)
