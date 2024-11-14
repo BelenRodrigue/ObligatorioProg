@@ -124,6 +124,9 @@ if __name__ == '__main__':
     the_end = False
 
     gremio.registrar_aventurero_en_el_gremio("aa", "Guerrero", 1, 1, 1.0, 1, None, False, None, None, 1)
+    gremio.registrar_aventurero_en_el_gremio("bb", "Mago", 1, 1, 1.0, None, 2, False, None, None, 2)
+    gremio.registrar_aventurero_en_el_gremio("cc", "Ranger", 1, 1, 1.0, None, None, True, "aki", 10, 3)
+
     gremio.registrar_mision("mision", 1, 2.0, 1)
 
     while(the_end == False):

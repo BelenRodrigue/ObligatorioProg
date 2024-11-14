@@ -31,7 +31,7 @@ class Guerrero(Aventurero):
             raise ValorInvalido("El rango es inválido")
         
     def habilidad_total(self):
-        return self.puntos_de_habilidad + (self.__fuerza / 2)
+        return self.puntos_de_habilidad + round(self.__fuerza / 2)
 
     def __str__(self):
         return super().__str__() + "\nFuerza: " + str(self.fuerza)

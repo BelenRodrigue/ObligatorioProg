@@ -35,6 +35,6 @@ class Ranger(Aventurero):
         
     def habilidad_total(self):
         if Mascota == None:
-            return str(self.puntos_de_habilidad)
+            return self.puntos_de_habilidad
         else:
-            return str(self.puntos_de_habilidad) + str(self.__mascota.puntos_de_habilidad)
+            return self.puntos_de_habilidad + self.__mascota.puntos_de_habilidad

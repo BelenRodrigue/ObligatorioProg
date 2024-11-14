@@ -14,7 +14,7 @@ class Mago(Aventurero):
         return self.__mana
     
     def validar_rango(self, rango_minimo: int):
-        puntos = self.puntos_de_habilidad + (self.mana / 10)
+        puntos = self.puntos_de_habilidad + round(self.mana / 10)
 
         if 1 <= puntos <= 20:
             rango = 1
@@ -31,7 +31,7 @@ class Mago(Aventurero):
             raise ValorInvalido ("El rango es inválido")
         
     def habilidad_total(self):
-        return self.puntos_de_habilidad + (self.__mana / 10)
+        return self.puntos_de_habilidad + round(self.__mana / 10)
     
     def __str__(self):
         return super().__str__() + "\nMana: " + str(self.mana)
