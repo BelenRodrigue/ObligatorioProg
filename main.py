@@ -34,8 +34,7 @@ def registrar_aventurero(gremio: Gremio):
     elif option == 3:
         clase = "Ranger"
     else:
-        # poner un raise 
-        print("Error")
+        raise ValorInvalido("Tipo de aventurero invalido") 
 
     print("Ingrese el nombre:")
     nombre = str(input())
@@ -123,42 +122,22 @@ if __name__ == '__main__':
     gremio = Gremio()
     the_end = False
 
-    # Inserts de ayuda
-    gremio.registrar_aventurero_en_el_gremio("aa", "Guerrero", 1, 1, 1.0, 1, None, False, None, None, 1)
-    gremio.registrar_aventurero_en_el_gremio("bb", "Mago", 1, 1, 1.0, None, 2, False, None, None, 2)
-    gremio.registrar_aventurero_en_el_gremio("cc", "Ranger", 1, 1, 1.0, None, None, True, "aki", 10, 3)
-    gremio.registrar_mision("mision", 1, 2.0, 1)
-    # 
 
     while(the_end == False):
-        # Prints de ayuda
-        # print()
-        # print("############")
-        # print(gremio)
-        # print("############")
-        # print()
-        # 
-
         mostrar_menu_principal()
         try:
             option = int(input())
             if option == 1:
-                # Registrar aventurero
                 registrar_aventurero(gremio)
             elif option == 2:
-                # Registrar misión
                 registrar_mision(gremio)
             elif option == 3:
-                # Realizar misión
                 realizar_mision(gremio)
             elif option == 4:
-                # 
                 otras_consultas(gremio)
             elif option == 5:
-                # Finalizar la simulacion
                 the_end = True
         except ValorInvalido as ex:
             print(ex.mensaje)
-        # Descomentar antes de entregar 
-        # except:
-        #     print("Error de ingreso de datos")
+        except:
+            print("Error de ingreso de datos")

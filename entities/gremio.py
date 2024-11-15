@@ -105,6 +105,8 @@ class Gremio:
         self.__aventureros = aventureros_nuevo
 
     def ver_top_10_aventureros_misiones_resueltas(self):
+        print("Ranking de los 10 Aventureros con mas misiones resueltas")
+        print("=" * 50)
         aventureros_ordenados = self.__aventureros
         aventureros_ordenados.sort(key= lambda aventurero: (-aventurero.misiones_completadas, aventurero.nombre)) 
 
@@ -112,9 +114,12 @@ class Gremio:
         while (n < 10 and n < len(aventureros_ordenados)):
             print(str(n+1))
             print(aventureros_ordenados[n])
+            print("-" * 50)
             n += 1
 
-    def ver_top_10_aventureros_por_mayor_habilidad(self):        
+    def ver_top_10_aventureros_por_mayor_habilidad(self):
+        print("Ranking de los 10 Aventureros con Mayor Habilidad")
+        print("=" * 50)        
         aventureros_ordenados = self.__aventureros
         aventureros_ordenados.sort(key= lambda aventurero: (-aventurero.habilidad_total(), -aventurero.experiencia)) 
         
@@ -122,9 +127,12 @@ class Gremio:
         while (n < 10 and n < len(aventureros_ordenados)):
             print(str(n+1))
             print(aventureros_ordenados[n])
+            print("-" * 50)
             n += 1
 
     def ver_top_5_misiones_con_mayor_recompensa(self):
+        print("Ranking de las 5 misiones con mayor recompensa")
+        print("=" * 50)
         misiones_ordenadas = self.__misiones
         misiones_ordenadas.sort(key= lambda mision: (-mision.recompensa, mision.nombre)) 
 
@@ -132,6 +140,8 @@ class Gremio:
         while (n < 5 and n < len(misiones_ordenadas)):
             print(str(n+1))
             print(misiones_ordenadas[n])
+            print("-" * 50)
+
             n += 1
 
     def __str__(self):
